@@ -7,7 +7,7 @@
  *
  * 
  * This script builds 1-3 512M Cloud Servers and injects an SSH pub key for login.
- * It then returns the IP addresses for the servers.
+ * It then returns the passwords and IP addresses for the servers.
 */
 
 // Require composer's copy of php-opencloud
@@ -135,21 +135,24 @@ for ( $i = 1; $i <= $serverCount; $i++ )
 }
 
 // Wait for server creation to finish
-echo "Creation process started for the " . $serverCount . " server" . (($serverCount > 1) ? "s" : "") . ", waiting.\n    ";
+echo "Creation process started for the " . $serverCount . " server" . (($serverCount > 1) ? "s" : "") . ", waiting.\n";
 foreach ( $servers as $server )
 {
   $server->waitFor(ServerState::ACTIVE);
+  echo $server->name . " is ready.\n";
 }
 
 // Print out IP and Root Password
 foreach ( $servers as $server )
 {
   echo 
-    "=======
+    "
+    =======
     Server: " . $server->name . "\n
     Root password: " . $server->adminPass . " \n 
     IP Address: " . $server->accessIPv4 . "
     =======";
 }
+echo "\n"; // formatting
 
 ?>
