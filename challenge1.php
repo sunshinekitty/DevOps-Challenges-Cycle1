@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Alex Edwards (sunshinekitty)
  * Nov, 2014
@@ -86,7 +87,7 @@ catch (BadRequestException $f)
 // Wait for server creation to finish
 $server->waitFor(ServerState::ACTIVE);
 
-// Print out IP and Root Password
+// Print out root password and IP address
 echo "Root password: " . $server->adminPass;
 echo "\n";
 echo "IP Address: " . $server->accessIPv4;
