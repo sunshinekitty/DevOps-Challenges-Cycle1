@@ -47,8 +47,8 @@ foreach ($flavors as $flavor)
 {
     if (strpos($flavor->name, '512M') !== false) 
     {
-    $serverFlavor = $flavor;
-    break;
+      $serverFlavor = $flavor;
+      break;
     }
 }
 
@@ -60,6 +60,10 @@ while (true)
   if ( strlen($serverName) > 1 ) 
   {
     break;
+  }
+  else
+  {
+    echo "\n";
   }
 }
 echo "Thanks! Creation process started.\n";
