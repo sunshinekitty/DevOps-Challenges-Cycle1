@@ -5,7 +5,6 @@
  * Nov, 2014
  * challenge2.php
  *
- * 
  * This script builds 1-3 512M Cloud Servers and injects an SSH pub key for login.
  * It then returns the passwords and IP addresses for the servers.
 */
@@ -100,8 +99,7 @@ while (true)
   }
   else
   {
-    echo "File " . $keyPath . " does not exist.\n
-      Please try again.\n";
+    echo "File " . $keyPath . " does not exist.\nPlease try again.\n";
   }
 }
 
